@@ -30,7 +30,7 @@
 	});
 })(window,document,$);
 // 轮播图模块
-(function($,window){
+(function($,window,interval){
 	// 初始化小圆点
 	var imgBox = $(".z-imgs");
 	var num = imgBox.children().length;
@@ -50,7 +50,7 @@
 	var index = 1,timer;
 	timer = window.setInterval(function(){
 		toggleImg();
-	},3000);
+	},interval);
 	// 切换图片
 	function toggleImg(dir="next"){
 		imgBox.children().addClass("hidden");
@@ -124,7 +124,7 @@
 				toggleImg();
 			},3000);
 		});
-})($,window);
+})($,window,5000);
 // nav/tab栏初始化
 (function($){
 	$(".z-nav>ul").children().each(function(index,ele){
@@ -547,7 +547,7 @@
 		_init: function(options){
 			this.dom = $(options.dom || ".z-video");
 			this.playerBox = $(options.playerBox ||".z-play-box");
-			this.prevAd = options.prevAd || "<div class='z-video-ad'>广告</div>";
+			this.prevAd = options.prevAd || $("#video_prevAd").html();
 			this.prevAdInterval = options.prevAdInterval || 5000;
 			this.api = options.api || "https://jx.618g.com/?url=";
 		},
@@ -687,7 +687,7 @@
 })(DataLoader,DataIntegrator);
 // 委托事件显示载入数据到播放区块
 (function($){
-	$(".z-list,.z-search-data").on("click","a",function(e){
+	$(".z-list,.z-search-data,.z-imgs").on("click","a",function(e){
 		var vlink = $(this).data("vlink");
 		var sid = $(this).data("sid");
 		var player = new Player({});
@@ -750,7 +750,7 @@
 // 乐酷播放tab响应事件
 (function($){
 	$(".z-nav-box .play").on("click",function(){
-		if(!$(".z-play .z-episodes-list").children().length){
+		if(!$(".z-play iframe").attr("src")){
 			return;
 		}
 		$(".z-play").removeClass("hidden");
