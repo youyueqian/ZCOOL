@@ -727,7 +727,7 @@
 		}
 		// var id = $(this).data("id");
 		var videoListLoader = new VideoListLoader({
-			url: "http://list.youku.com/show/episode",
+			url: "https://list.youku.com/show/episode",
 			container: ".p-panels"
 		});
 		var sid = videoListLoader.sid;
