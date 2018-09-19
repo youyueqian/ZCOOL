@@ -550,6 +550,7 @@
 			this.prevAd = options.prevAd || $("#video_prevAd").html();
 			this.prevAdInterval = options.prevAdInterval || 5000;
 			this.api = options.api || "https://jx.618g.com/?url=";
+			this.vLinkHost = options.vLinkHost || "https://jx.618g.com/?url=";
 		},
 		init: function initPlayer(src){
 			// 初始化播放器尺寸
@@ -574,7 +575,7 @@
 		},
 		formatSrc: function (src) {
 			if(src.indexOf("http://") == -1 && src.indexOf("https://") == -1){
-				return "http://" + src;
+				return "http://" + src.substr(src.indexOf(this.vLinkHost));
 			}else{
 				return src;
 			}
