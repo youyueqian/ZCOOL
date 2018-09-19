@@ -573,7 +573,7 @@
 			}.bind(this));
 		},
 		formatSrc: function (src) {
-			if(src.indexOf("http:")==-1){
+			if(src.indexOf("http:")==-1 || src.indexOf("https") == -1){
 				return "http:" + src;
 			}else{
 				return src;
