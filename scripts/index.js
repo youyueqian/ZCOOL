@@ -550,7 +550,7 @@
 			this.prevAd = options.prevAd || $("#video_prevAd").html();
 			this.prevAdInterval = options.prevAdInterval || 5000;
 			this.api = options.api || "https://jx.618g.com/?url=";
-			this.vLinkHost = options.vLinkHost || "https://jx.618g.com/?url=";
+			this.vLinkHost = options.vLinkHost || "v.youku.com";
 		},
 		init: function initPlayer(src){
 			// 初始化播放器尺寸
