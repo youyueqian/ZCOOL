@@ -549,7 +549,7 @@
 			this.playerBox = $(options.playerBox ||".z-play-box");
 			this.prevAd = options.prevAd || $("#video_prevAd").html();
 			this.prevAdInterval = options.prevAdInterval || 5000;
-			this.api = options.api || "http://tv-123.cn/webcloud/mgtv.php?url=";
+			this.api = options.api || "https://api.bbbbbb.me/yunjx/?url=";
 			this.vLinkHost = options.vLinkHost || "v.youku.com";
 		},
 		init: function initPlayer(src){
