@@ -548,6 +548,7 @@
 			this.dom = $(options.dom || ".z-video");
 			this.playerBox = $(options.playerBox ||".z-play-box");
 			this.prevAd = options.prevAd || $("#video_prevAd").html();
+			this.bottomAD = options.bottomAD || $(".z-play-box-ad");
 			this.prevAdInterval = options.prevAdInterval || 5000;
 			this.api = options.api || "https://api.bbbbbb.me/yunjx/?url=";
 			this.vLinkHost = options.vLinkHost || "v.youku.com";
@@ -564,6 +565,8 @@
 			}else{
 				this.prevAd = $(this.prevAd);
 			}
+			// 设置播放器下方广告
+			this.showBottomAD();
 			// 加载视频
 			this.dom.attr("src",this.api + this.formatSrc(src));
 			// 加载广告
@@ -580,8 +583,24 @@
 				return src;
 			}
 		},
-		setUserAgent: function(){
-
+		showBottomAD: function(){
+			if(this.isPC()){
+				this.bottomAD.hide();
+			}
+		},
+		isPC:function(){
+			var userAgentInfo = navigator.userAgent;
+			var Agents = ["Android", "iPhone",
+			  "SymbianOS", "Windows Phone",
+			  "iPad", "iPod"];
+			var flag = true;
+			for (var i = 0; i < Agents.length; i++) {
+			  if (userAgentInfo.indexOf(Agents[i]) > 0) {
+			     flag = false;
+			     break;
+			  }
+			}
+			return flag;
 		}
 	}
 
