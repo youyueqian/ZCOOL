@@ -549,6 +549,8 @@
 			this.playerBox = $(options.playerBox ||".z-play-box");
 			this.prevAd = options.prevAd || $("#video_prevAd").html();
 			this.bottomAD = options.bottomAD || $(".z-play-box-ad");
+			this.playBoxTop = options.playBoxTop || $(".z-play-box-top");
+			this.playBoxRight = options.playBoxRight || $(".z-play-box-right");
 			this.prevAdInterval = options.prevAdInterval || 5000;
 			this.api = options.api || "https://api.bbbbbb.me/yunjx/?url=";
 			this.vLinkHost = options.vLinkHost || "v.youku.com";
@@ -586,6 +588,8 @@
 		showBottomAD: function(){
 			if(this.isPC()){
 				this.bottomAD.hide();
+				this.playBoxTop.hied();
+				this.playBoxRight.hide();
 			}
 		},
 		isPC:function(){
