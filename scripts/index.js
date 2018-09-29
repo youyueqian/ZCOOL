@@ -553,9 +553,10 @@
 			this.playBoxRight = options.playBoxRight || $(".z-play-box-right");
 			this.prevAdInterval = options.prevAdInterval || 5000;
 			this.api = options.api || "https://api.bbbbbb.me/yunjx/?url=";
+			this.api2 = options.api2 || "https://jx.618g.com/?url=";
 			this.vLinkHost = options.vLinkHost || "v.youku.com";
 		},
-		init: function initPlayer(src){
+		init: function initPlayer(src,mode){
 			// 初始化播放器尺寸
 			this.playerBox.height(this.playerBox.width()* 9/16);
 			// 清除原有的广告
@@ -570,7 +571,16 @@
 			// 设置播放器下方广告
 			this.showBottomAD();
 			// 加载视频
-			this.dom.attr("src",this.api + this.formatSrc(src));
+			this.dom.attr("src",(mode?this.api2:this.api) + this.formatSrc(src));
+			// 加载视频链接给备用接口链接
+			$(".z-play-box-top a")
+				.attr("href",src)
+				.on("click",function(e){
+					e.preventDefault();
+					var vlink = this.href;
+					var player = new Player({});
+					player.init(vlink,"reload");//初始化播放器
+				});
 			// 加载广告
 			this.dom.on("load",function(){
 				setTimeout(function(){
