@@ -588,7 +588,7 @@
 		showBottomAD: function(){
 			if(this.isPC()){
 				this.bottomAD.hide();
-				this.playBoxTop.hied();
+				this.playBoxTop.hide();
 				this.playBoxRight.hide();
 			}
 		},
